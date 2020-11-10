@@ -368,9 +368,10 @@ window.addEventListener('DOMContentLoaded', function(){
 
         const calcBlock = document.querySelector('.calc-block'),
             calcType = document.querySelector('.calc-type'),
-            calcSquare = document.querySelector('.calc-square'),
-            calcDay = document.querySelector('.calc-day'),
-            calcCount = document.querySelector('.calc-count'), // количество помещений
+
+            calcSquare = document.querySelector('.calc-square'), //Input: Общая площадь
+            calcDay = document.querySelector('.calc-day'), // Input: Срок исполнения (в днях)
+            calcCount = document.querySelector('.calc-count'), // Input: количество помещений
             totalValue = document.getElementById('total');
 
         const countSum = () => {
@@ -378,6 +379,10 @@ window.addEventListener('DOMContentLoaded', function(){
             let total = 0,
                 countValue = 1,
                 dayValue = 1;
+
+            calcSquare.value = calcSquare.value.replace(/\D/g, '');
+            calcDay.value = calcDay.value.replace(/\D/g, '');
+            calcCount.value = calcCount.value.replace(/\D/g, '');
 
             const typeValue = calcType.options[calcType.selectedIndex].value,
                 squareValue = +calcSquare.value; // коэффициент
